@@ -8,7 +8,7 @@ export function LoadingProvider({children}) {
 
     const [loading, dispatchLoading] = useReducer(loadingReducer, loadingInitialState)
 
-    const value = useMemo(() => ({loading, dispatchLoading}), [loading, dispatchLoading])
+    const value = useMemo(() => ({loading, dispatchLoading}), [loading])
 
     return <LoadingContext.Provider value={value}>{children}</LoadingContext.Provider>
 }

@@ -2,16 +2,13 @@ import React, { useCallback, useEffect } from 'react'
 import { useProducts } from '../../contexts/productsContext';
 import { useCartContext } from '../../contexts/cartContext';
 import Product from '../../components/Product';
-import { useErrorContext } from '../../contexts/errorContext';
 import { useLoadingContext } from '../../contexts/loadingContext';
 import Loading from '../../components/Loading';
-import ErrorDisplay from '../../components/ErrorDisplay';
 
 function Home() {
 
-  const {loadProducts, productState: { products }} = useProducts();
+  const {loadProducts, products} = useProducts();
   const { loadCart } = useCartContext();
-  const { errors } = useErrorContext();
   const { loading } = useLoadingContext();
 
 
@@ -23,26 +20,19 @@ function Home() {
   useEffect(() => {
     loadData();
   }, [loadData]);
-
-  console.log(errors);
-  console.log(loading);
-
+  
   if (loading.some(x => x.action === 'LOAD_PRODUCTS' || x.action === 'LOAD_CART')) {
     return <Loading/>
   }
 
-  if (errors.some(x => x.action === 'LOAD_PRODUCTS' || x.action === 'LOAD_CART')) {
-    return <div>
-      <ErrorDisplay/>
-    </div>
-  }
-
   return (
     <div>
-      {products.map(product => (
-          <Product key={product.id} product={product}/>
-        ) 
-      )}
+      {products.map(product => {
+        const isLoading = loading.some(x => x.loadingId === product.id);
+        return (
+          <Product key={product.id} product={product} isLoading={isLoading} />
+        );
+      })}
     </div>
   )
 }

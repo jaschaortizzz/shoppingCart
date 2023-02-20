@@ -22,7 +22,6 @@ export default class ErrorBoundary extends Component {
     }
 
     render() {
-
         const { children } = this.props;
         const { error } = this.state
 

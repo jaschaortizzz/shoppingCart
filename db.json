@@ -1,43 +1,4 @@
 {
-  "todoList": [
-    {
-      "text": "hello",
-      "isDone": true,
-      "id": 2
-    },
-    {
-      "text": "change",
-      "isDone": true,
-      "id": 3
-    },
-    {
-      "text": "hello",
-      "isDone": false,
-      "id": 5
-    },
-    {
-      "text": "hello",
-      "isDone": false,
-      "id": 7
-    },
-    {
-      "text": "1",
-      "isDone": false,
-      "id": 8
-    }
-  ],
-  "weatherList": [
-    {
-      "cityName": "Ahmedabad",
-      "temp": 30,
-      "tempType": "C"
-    },
-    {
-      "cityName": "Mumbai",
-      "temp": 30,
-      "tempType": "C"
-    }
-  ],
   "users": [
     {
       "email": "yagnesh.modh@gmail.com",
@@ -340,8 +301,23 @@
   "cart": [
     {
       "productId": 1,
-      "quantity": 3,
-      "id": 1
+      "quantity": 1,
+      "id": 3
+    },
+    {
+      "productId": 2,
+      "quantity": 1,
+      "id": 4
+    },
+    {
+      "productId": 3,
+      "quantity": 1,
+      "id": 5
+    },
+    {
+      "productId": 4,
+      "quantity": 1,
+      "id": 6
     }
   ]
 }

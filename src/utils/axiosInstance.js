@@ -14,13 +14,13 @@ axiosInstance.interceptors.request.use(
             const jsonToken = JSON.parse(token);
             updatedConfig.headers.Authorization = `Bearer ${jsonToken.accessToken}`
         }
-        return config;
+        return updatedConfig;
     },
     error => Promise.reject(error),
 );
 
 axiosInstance.interceptors.response.use(
-    response => response,
+    response => response.data,
     error => {
         if (error?.response?.data) {
             return Promise.reject(new Error(error.response.data))

@@ -1,18 +1,17 @@
-import React, { useMemo } from 'react'
+import React, { memo, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import { useCartContext } from '../../contexts/cartContext';
 import Reviews from '../Reviews';
 
 
-function Product({product}) {
-
+function Product({product, isLoading}) {
     const { 
-        cartState: { cart },
+        cart,
         addToCart,
         updateCartItem,
         deleteCartItem
     } = useCartContext();
-
+   
     const cartItem = useMemo(() => cart.find(x => x.productId === product.id), [cart, product.id],)
 
     return (
@@ -39,7 +38,8 @@ function Product({product}) {
                     {cartItem ? (
                     <div className="flex items-center">
                         <button
-                            type="submit"
+                            type="button"
+                            disabled={isLoading}
                             onClick={() => {
                                 if (cartItem.quantity <= 1) {
                                     deleteCartItem(cartItem)
@@ -50,29 +50,33 @@ function Product({product}) {
                                     })
                                 }
                             }}
-                            className=" w-full flex-1 rounded-md border border-transparent bg-primary-100 py-3 px-8 text-base font-medium text-white hover:bg-primary-200 focus:outline-none focus:ring-2 focus:ring-primary-100 focus:ring-offset-2">
+                            className="w-full flex-1 rounded-md border border-transparent bg-primary-100 py-3 px-8 text-base font-medium text-white hover:bg-primary-200 focus:outline-none focus:ring-2 focus:ring-primary-100 focus:ring-offset-2 disabled:bg-slate-500 disabled:cursor-wait">
                                 -
                             </button>
                             <p className="flex-1 text-2xl font-bold text-center">{cartItem.quantity}</p>
                             <button
-                                type="submit"
-                                onClick={() => updateCartItem({
+                                type="button"
+                                disabled={isLoading}
+                                onClick={() => 
+                                    updateCartItem({
                                     ...cartItem,
                                     quantity: cartItem.quantity + 1,
                                 })}
-                                className=" flex-1 w-full rounded-md border border-transparent bg-primary-100 py-3 px-8 text-base font-medium text-white hover:bg-primary-200 focus:outline-none focus:ring-2 focus:primary-100 focus:ring-offset-2"
+                                className="flex-1 w-full rounded-md border border-transparent bg-primary-100 py-3 px-8 text-base font-medium text-white hover:bg-primary-200 focus:outline-none focus:ring-2 focus:primary-100 focus:ring-offset-2 disabled:bg-slate-500 disabled:cursor-wait"
                             >
                                 +
                             </button>
                         </div>
                         ) : (
                             <button
-                              type="submit"
-                              onClick={() => addToCart({
+                              type="button"
+                              disabled= {isLoading}
+                              onClick={() => 
+                                addToCart({
                                 productId: product.id,
                                 quantity: 1,
                               })}
-                              className="mt-6 w-full rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                              className="mt-6 w-full rounded-md border border-transparent bg-primary-100 py-3 px-8 text-base font-medium text-white hover:bg-primary-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:bg-slate-500 disabled:cursor-wait"
                             >
                               Add to bag
                             </button>)
@@ -97,6 +101,7 @@ Product.propTypes = {
             count: PropTypes.number.isRequired
         }).isRequired,
     }).isRequired,
+    isLoading: PropTypes.bool.isRequired,
 }
 
-export default Product
+export default memo(Product)

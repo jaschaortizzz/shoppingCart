@@ -8,7 +8,7 @@ export function ErrorProvider({children}) {
 
     const [errors, dispatchErrors] = useReducer(errorReducer, errorInitialState)
 
-    const value = useMemo(() => ({errors, dispatchErrors}), [errors, dispatchErrors])
+    const value = useMemo(() => ({errors, dispatchErrors}), [errors])
 
     return <ErrorContext.Provider value={value}>{children}</ErrorContext.Provider>
 }

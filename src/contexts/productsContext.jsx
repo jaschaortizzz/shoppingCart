@@ -9,7 +9,7 @@ export const ProductContext = createContext();
 
 export function ProductsProvider({children}) {
 
-    const [ productState, dispatch] = useReducer(productReducer, productInitialValue)
+    const [ products, dispatch] = useReducer(productReducer, productInitialValue)
     const {dispatchErrors} = useErrorContext();
     const {dispatchLoading} = useLoadingContext();
     const apiRequest = useApiRequest(dispatch, dispatchLoading, dispatchErrors)
@@ -26,8 +26,8 @@ export function ProductsProvider({children}) {
     
     const value = useMemo(() => ({
         loadProducts,
-        productState,
-    }), [ loadProducts, productState])
+        products,
+    }), [ loadProducts, products])
 
     return <ProductContext.Provider value={value}>{children}</ProductContext.Provider>
 }
