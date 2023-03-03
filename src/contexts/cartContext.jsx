@@ -1,9 +1,15 @@
-import React, { createContext, useCallback, useContext, useMemo, useReducer } from 'react'
-import PropTypes from 'prop-types'
-import { cartInitialValue, cartReducer } from '../reducers/cartReducer'
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useMemo,
+  useReducer,
+} from 'react';
+import PropTypes from 'prop-types';
+import { cartInitialValue, cartReducer } from '../reducers/cartReducer';
+import useApiRequest from '../hooks/useApiRequest';
 import { useErrorContext } from './errorContext';
 import { useLoadingContext } from './loadingContext';
-import useApiRequest from '../hooks/useApiRequest';
 
 export const CartContext = createContext();
 
@@ -69,7 +75,8 @@ export function CartProvider({children}){
           updateCartItem,
           deleteCartItem,
           cart,
-     }), [ loadCart, addToCart, updateCartItem, deleteCartItem, cart ])
+     }), [ loadCart, addToCart, updateCartItem, deleteCartItem, cart ],
+     );
 
 
      return <CartContext.Provider value={value}>{children}</CartContext.Provider>

@@ -1,6 +1,7 @@
 import React, { Fragment, useCallback, useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import clsx from 'clsx';
+import { connect } from 'react-redux';
 import { Bars3Icon, ShoppingCartIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useAuthContext } from '../../contexts/authContext'
 import logo from '../../../public/images/shoe-planet-logo-tp.png'

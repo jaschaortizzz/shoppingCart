@@ -300,24 +300,14 @@
   ],
   "cart": [
     {
-      "productId": 1,
-      "quantity": 1,
-      "id": 3
-    },
-    {
       "productId": 2,
       "quantity": 1,
-      "id": 4
+      "id": 1
     },
     {
-      "productId": 3,
+      "productId": 1,
       "quantity": 1,
-      "id": 5
-    },
-    {
-      "productId": 4,
-      "quantity": 1,
-      "id": 6
+      "id": 2
     }
   ]
 }

@@ -58,7 +58,7 @@ function Checkout({ open, toggleCheckout }) {
                       <div className="mt-8">
                         <div className="flow-root">
                           <ul className="-my-6 divide-y divide-gray-200">
-                            {cart.map(cartItem => {
+                            {cart?.map(cartItem => {
                               const product = products.find(
                                 x => x.id === cartItem.productId,
                               );

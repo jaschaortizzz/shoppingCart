@@ -1,5 +1,7 @@
 import React, { createContext, useCallback, useMemo, useState, useContext, useEffect } from 'react'
 import PropTypes from 'prop-types'
+import axiosInstance from '../utils/axiosInstance';
+
 
 export const AuthContext = createContext();
 
@@ -17,21 +19,9 @@ export function AuthProvider({children}) {
     
     const login = useCallback(async(values, actions) => {
         try {
-      
-            const res = await fetch('http://localhost:3000/login', {
-              method: "POST",
-              body: JSON.stringify(values),
-              headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-              }
-            });
-            const json = await res.json();
-            if (!res.ok) {
-              throw new Error(json)
-            }
-            setUser(json)
-            localStorage.setItem("token",JSON.stringify(json))
+            const res = await axiosInstance.post('login', values);
+            setUser(res);
+            localStorage.setItem('token', JSON.stringify(res));
           } catch (error) {
             actions.setErrors({serverError: error.message})
           }
@@ -42,21 +32,10 @@ export function AuthProvider({children}) {
 
             const {confimPassword, ...rest} = values;
     
-            const res = await fetch('http://localhost:3000/register', {
-              method: "POST",
-              body: JSON.stringify(rest),
-              headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-              }
-            });
-            const json = await res.json();
-            if (!res.ok) {
-              throw new Error(json)
-            }
+            const res = await axiosInstance.post('register', rest);
             // actions.resetForm();
-            setUser(json)
-            localStorage.setItem("token",JSON.stringify(json))
+            setUser(res);
+            localStorage.setItem('token', JSON.stringify(res));
           } catch (error) {
             actions.setErrors({serverError: error.message})
           }

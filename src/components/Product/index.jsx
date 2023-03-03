@@ -1,7 +1,9 @@
-import React, { memo, useMemo } from 'react'
+import React, { useMemo } from 'react'
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
 import { useCartContext } from '../../contexts/cartContext';
 import Reviews from '../Reviews';
+
 
 
 function Product({product, isLoading}) {
@@ -13,7 +15,7 @@ function Product({product, isLoading}) {
     } = useCartContext();
    
     const cartItem = useMemo(() => cart.find(x => x.productId === product.id), [cart, product.id],)
-
+    
     return (
     <div key={product.id}className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 my-10 grid grid-cols-1 items-start gap-y-8 gap-x-6 sm:grid-cols-12 lg:gap-x-8">
         <div className="aspect-w-2 aspect-h-3 overflow-hidden rounded-lg bg-gray-100 sm:col-span-2 lg:col-span-3">
@@ -104,4 +106,12 @@ Product.propTypes = {
     isLoading: PropTypes.bool.isRequired,
 }
 
-export default memo(Product)
+const mapStateToProps = store => ({
+    theme: store.theme,
+  });
+  
+  const mapDispatchToProps = dispatch => ({
+    changeTheme: () => dispatch({ type: 'CHANGE_THEME' }),
+  });
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(Product);
