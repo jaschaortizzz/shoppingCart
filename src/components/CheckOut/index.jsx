@@ -59,7 +59,7 @@ function Checkout({ open, toggleCheckout }) {
                         <div className="flow-root">
                           <ul className="-my-6 divide-y divide-gray-200">
                             {cart?.map(cartItem => {
-                              const product = products.find(
+                              const product = products?.find(
                                 x => x.id === cartItem.productId,
                               );
                               return (
@@ -76,7 +76,7 @@ function Checkout({ open, toggleCheckout }) {
                                     <div>
                                       <div className="flex justify-between text-base font-medium text-gray-900">
                                         <h3>
-                                          <a href="/">{product.title}</a>
+                                          <a href="/">{product?.title}</a>
                                         </h3>
                                         <p className="ml-4">
                                           {new Intl.NumberFormat('en-PH', {
@@ -122,7 +122,7 @@ function Checkout({ open, toggleCheckout }) {
                             currency: 'INR',
                             style: 'currency',
                           }).format(
-                            cart.reduce((p, c) => {
+                            cart?.reduce((p, c) => {
                               const product = products.find(
                                 x => x.id === c.productId,
                               );

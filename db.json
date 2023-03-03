@@ -302,12 +302,12 @@
     {
       "productId": 2,
       "quantity": 1,
-      "id": 1
+      "id": 3
     },
     {
       "productId": 1,
       "quantity": 1,
-      "id": 2
+      "id": 4
     }
   ]
 }

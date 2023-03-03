@@ -13,8 +13,10 @@ function Product({product, isLoading}) {
         updateCartItem,
         deleteCartItem
     } = useCartContext();
+
+    console.log(cart);
    
-    const cartItem = useMemo(() => cart.find(x => x.productId === product.id), [cart, product.id],)
+    const cartItem = useMemo(() => cart?.find(x => x.productId === product.id), [cart, product.id],)
     
     return (
     <div key={product.id}className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 my-10 grid grid-cols-1 items-start gap-y-8 gap-x-6 sm:grid-cols-12 lg:gap-x-8">

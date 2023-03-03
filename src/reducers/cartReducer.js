@@ -6,7 +6,7 @@ export const cartReducer = (state, { type, payload }) => {
               return payload
 
          case 'ADD_CART_SUCCESS':
-              return {...state, payload}
+              return [...state, payload]
 
          case 'UPDATE_CART_SUCCESS':{
               const index = state.findIndex(x => x.id === payload.id);
