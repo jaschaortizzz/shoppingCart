@@ -29,11 +29,8 @@ export function AuthProvider({children}) {
 
     const register = useCallback(async(values, actions) => {
         try {
-
             const {confimPassword, ...rest} = values;
-    
             const res = await axiosInstance.post('register', rest);
-            // actions.resetForm();
             setUser(res);
             localStorage.setItem('token', JSON.stringify(res));
           } catch (error) {

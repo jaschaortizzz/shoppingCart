@@ -6,7 +6,7 @@ function CustomForm({ fields,children, btnText ,...props }) {
     <Formik
         {...props}
     >
-        {({ isValid, dirty, isSubmitting, errors}) =>(
+        {({ errors }) =>(
             <Form className="mt-4">
                 {errors.serverError && <p className='text-center font-semibold text-red-500 text-sm'>{errors.serverError}</p>}
                 {fields.map(item => 

@@ -1,6 +1,6 @@
 import React, { createContext, useMemo, useCallback, useContext, useReducer } from 'react'
 import PropTypes from 'prop-types'
-import { productInitialValue, productReducer } from '../reducers/productReducer'
+import productReducer, { productInitialValue } from '../reducers/productReducer'
 import { useErrorContext } from './errorContext';
 import useApiRequest from '../hooks/useApiRequest';
 import { useLoadingContext } from './loadingContext';

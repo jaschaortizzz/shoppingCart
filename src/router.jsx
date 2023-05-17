@@ -9,17 +9,19 @@ import Register from './pages/Register'
 import NotFound from './pages/NotFound'
 
 export default createBrowserRouter(createRoutesFromElements(
-    <Route path='/' element={<BaseLayout/>}>
-
-        <Route path='dashboard' element={<MainLayout/>}>
-            <Route index element={<Home/>}/>
-        </Route>
-
-        <Route path='auth' element={<AuthLayout/>}>
-            <Route index element={<Login/>}/>
-            <Route path='register' element={<Register/>}/>
-        </Route>
-
-        <Route path='*' element={<NotFound/>}/>
+   
+    <>
+     <Route path='/' element={<AuthLayout/>}>
+        <Route index element={<Login/>}/>
+        <Route path='register' element={<Register/>}/>
     </Route>
+
+    <Route path='*' element={<NotFound/>}/>
+    
+    <Route path='dashboard' element={<MainLayout/>}>
+        <Route index element={<Home/>}/>
+    </Route>
+
+    </>
+    
 ));

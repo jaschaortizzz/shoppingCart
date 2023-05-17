@@ -1,56 +1,12 @@
 {
   "users": [
     {
-      "email": "yagnesh.modh@gmail.com",
-      "password": "$2a$10$nD8zamTN4ej43Jp3wFXRje.diQuUQkwAYk0lY/38JLoohFgyh98mS",
-      "name": "YAGNESH MODH",
+      "email": "1234@test.gmail.com",
+      "password": "$2a$10$rwnowL9paB/iMuwZN3gAkeorZTfeVx5bgJKa3ca/b3SVVw7rzUgkO",
+      "name": "Name",
       "gender": "male",
       "hobbies": [
-        "cricket",
-        "football"
-      ],
-      "id": 1
-    },
-    {
-      "email": "dsp.ce28@gmail.com",
-      "password": "$2a$10$u5G7dOCXzrpNT4o17BlRvuTHlAOf1JQo/NCpoqLG09yvMcDX7ivpm",
-      "name": "YAGNESH MODH",
-      "gender": "male",
-      "hobbies": [],
-      "id": 2
-    },
-    {
-      "email": "test@gmail.com",
-      "password": "$2a$10$fh9WmHziw5emmqNI8BbRUuT0nZjowK.kYsZAhb4DifJylUlL9GXxG",
-      "name": "test",
-      "gender": "male",
-      "hobbies": [
-        "cricket",
-        "golf"
-      ],
-      "id": 3
-    },
-    {
-      "email": "jaschaortiz@gmail.com",
-      "password": "$2a$10$izQBsLxmPjV8k..kFcF1AuLGJjr0EZ6/w.S1WaNZRHw9MVDCnAKqy",
-      "name": "Jascha Ortiz",
-      "gender": "male",
-      "hobbies": [
-        "basketball",
-        "movies",
-        "skateboard"
-      ],
-      "confirmPassword": "1234",
-      "id": 4
-    },
-    {
-      "email": "testt@gmail.com",
-      "password": "$2a$10$ueP3CPq0etROZZIQOMhMpeslkucIzWuTbkLFvg18Lz7aIU56V2Z0S",
-      "name": "Test Name",
-      "gender": "male",
-      "hobbies": [
-        "basketball",
-        "football"
+        "basketball"
       ],
       "confirmPassword": "1234",
       "id": 5
@@ -300,14 +256,9 @@
   ],
   "cart": [
     {
-      "productId": 2,
-      "quantity": 1,
-      "id": 3
-    },
-    {
       "productId": 1,
-      "quantity": 1,
-      "id": 4
+      "quantity": 6,
+      "id": 3
     }
   ]
 }

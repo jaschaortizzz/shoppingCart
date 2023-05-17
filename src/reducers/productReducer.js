@@ -1,8 +1,8 @@
 export const productInitialValue = [];
 
-export const productReducer = (state, { type, payload }) => {
-    switch (type) {
-         case 'LOAD_PRODUCT_SUCCESS':
+export default (state = productInitialValue, { type, payload }) => {
+     switch (type) {
+         case 'LOAD_PRODUCTS_SUCCESS':
               return payload
 
          default:
